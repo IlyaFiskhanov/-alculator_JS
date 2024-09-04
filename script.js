@@ -7,6 +7,10 @@ let operator = null;
 let shouldResetDisplay = false;
 
 function updateDisplay() {
+  if (currentInput.replace(",", "").length >= 10) {
+    const number = parseFloat(currentInput.replace(",", "."));
+    currentInput = number.toExponential(5).replace(".", ",");
+  }
   display.textContent = currentInput;
 }
 
